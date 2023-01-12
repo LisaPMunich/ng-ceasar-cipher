@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto,
+  "Helvetica Neue",
+  sans-serif;
+  background: black;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 50%;
+  margin: 1em;
+}
+
+.background-black{
+  background: black;
+}
+
+.custom-toggle-button {
+  background-color: white;
+  color: black;
+  border: 2px black;
+  border-radius: 20px;
+}
+
+.custom-button-centered{
+  align-self: center;
+}
+
+.title {
+  text-align: center;
+  color: white;
+}
+
+.card-container > * {
+  width: 100%;
+}
+
+.decode-container {
+  text-align: center;
+}
+
+.decode-container > * {
+  margin: 1em;
+}
+
+
+
+
+
+
+
