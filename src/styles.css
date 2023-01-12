@@ -1,13 +1,42 @@
 
-html, body { height: 100%; }
-body {
-  margin: 0;
-  font-family: Roboto,
-  "Helvetica Neue",
-  sans-serif;
-  background: black;
+html, body {
+  height: 100%;
+  min-width: 1000px;
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: "Palatino Linotype", Palatino, serif;
+  background: #9c7423;
+}
+
+*{
+  font-family: "Palatino Linotype", Palatino, serif;
+
+}
+
+
+/* CUSTOM COLORS */
+/* --blue: #1f2d44 */
+/* --grey-blue: #445c70 */
+/* --camel: #c7a060 */
+/* --beige: #e3cfb9 */
+/* --gold: #9c7423 */
+
+
+
+/* global styles */
+.background-gold {
+  background: #9c7423;
+}
+
+.title {
+  text-align: center;
+  color: white;
+}
+
+/*typography & layout*/
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -16,11 +45,37 @@ body {
 
 .card {
   width: 50%;
+  max-width: 1000px;
   margin: 1em;
 }
 
-.background-black{
-  background: black;
+
+.card-container > * {
+  width: 100%;
+}
+
+.card-title{
+  color: #1f2d44;
+  padding-bottom: 10px;
+  font-family: "Palatino Linotype", Palatino, serif;
+  font-weight: bold;
+}
+
+mat-label{
+  color: #1f2d44;
+}
+
+/* image*/
+.title-image{
+  height: 100px;
+  border-radius: 70%;
+  padding: 10px;
+}
+
+/*buttons*/
+
+.custom-color-camel{
+  color: #9c7423;
 }
 
 .custom-toggle-button {
@@ -30,19 +85,11 @@ body {
   border-radius: 20px;
 }
 
-.custom-button-centered{
+.custom-centered-button{
   align-self: center;
 }
 
-.title {
-  text-align: center;
-  color: white;
-}
-
-.card-container > * {
-  width: 100%;
-}
-
+/*decode section*/
 .decode-container {
   text-align: center;
 }
@@ -50,6 +97,11 @@ body {
 .decode-container > * {
   margin: 1em;
 }
+
+
+
+
+
 
 
 

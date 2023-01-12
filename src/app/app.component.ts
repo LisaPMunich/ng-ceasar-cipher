@@ -1,112 +1,105 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+
+const ALPHABET_LOWERCASE = "abcdefghijklmnopqrstuvwxyz".split("");
+const ALPHABET_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  title = 'angular-cesar-cypher';
-  inputText: string = "";
-  shiftValue = "";
-  encodedText: string = "";
-  decodedText: string = "";
-  loading: boolean | undefined;
-  isLoading = false;
-  showDecodeBlock = false;
-  loadingBlock: any;
-
-
-  ngOnInit(): void {
-  }
-
-  private validateIfCharacterIsALetter(currentLetter: any) {
-    return (/[a-zA-Z]/).test(currentLetter)
-  }
-
-  clear(){
-    this.inputText = "";
-    this.shiftValue = "";
-    this.encodedText = "";
-    this.decodedText = "";
-  }
-
-  encodeInput(): void{
-    const shiftValue = Number(this.shiftValue) % 26; //edge case of input of high number
-    let alphabetLower: string[] = "abcdefghijklmnopqrstuvwxyz".split("");
-    let alphabetUpper: string[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    let encodedText = "";
-    this.isLoading = true;
+    title = 'Angular Caesar Cypher';
+    inputText: string = "";
+    shiftValue = "";
+    encodedText: string = "";
+    decodedText: string = "";
+    loading: boolean | undefined;
+    isLoading = false;
+    showDecodeBlock = false;
+    loadingBlock: any;
+    imagePath = 'https://caesarcipher.net/wp-content/uploads/2022/11/caesar-cipher-wheel-.webp';
 
 
-    for(let i = 0; i < this.inputText.length; i++) {
-      let currentLetter = this.inputText[i];
+    private validateIfCharacterIsALetter(currentLetter: any) {
+        return (/[a-zA-Z]/).test(currentLetter)
+    }
 
-      if (!this.validateIfCharacterIsALetter(currentLetter)) {
-        encodedText += currentLetter;
-        continue;
-      }
+    clear() {
+        this.inputText = "";
+        this.shiftValue = "";
+        this.encodedText = "";
+        this.decodedText = "";
+    }
 
-      if(currentLetter == currentLetter.toLowerCase()) {
-        let currentIndex = alphabetLower.indexOf(currentLetter);
+    getAlphabet(letter: string): string[] {
+
+        if (letter == letter.toLowerCase()) {
+            return ALPHABET_LOWERCASE;
+        } else {
+            return ALPHABET_UPPERCASE;
+        }
+    }
+
+    shiftIndexForward(currentIndex: number, shiftValue: number): number {
         let newIndex = currentIndex + shiftValue;
         if (newIndex > 25) newIndex = newIndex - 26;
         if (newIndex < 0) newIndex = newIndex + 26;
-        encodedText += alphabetLower[newIndex];
-        console.log("Lower", encodedText);
-      }
-      else if(currentLetter == currentLetter.toUpperCase()) {
-        let currentIndex = alphabetUpper.indexOf(currentLetter);
-        let newIndex = currentIndex + shiftValue;
-        if (newIndex > 25) newIndex = newIndex - 26;
-        if (newIndex < 0) newIndex = newIndex + 26;
-        encodedText += alphabetUpper[newIndex];
-        console.log("Upper", encodedText);
-      }
+        return newIndex;
     }
-    this.encodedText = encodedText;
-    this.isLoading = false;
-  }
 
-  decodeInput(): void{
-    const shiftValue = Number(this.shiftValue) % 26; //edge case of input of high number
-    let alphabetLower: string[] = "abcdefghijklmnopqrstuvwxyz".split("");
-    let alphabetUpper: string[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    this.isLoading = true;
-    let decodedText = "";
-
-
-    for(let i = 0; i < this.encodedText.length; i++) {
-      let currentLetter = this.encodedText[i];
-
-      if (!this.validateIfCharacterIsALetter(currentLetter)) {
-        decodedText += currentLetter;
-        continue;
-      }
-
-      if(currentLetter == currentLetter.toLowerCase()) {
-        let currentIndex = alphabetLower.indexOf(currentLetter);
+    shiftIndexBackward(currentIndex: number, shiftValue: number): number {
         let newIndex = currentIndex - shiftValue;
         if (newIndex > 25) newIndex = newIndex - 26;
         if (newIndex < 0) newIndex = newIndex + 26;
-        decodedText += alphabetLower[newIndex];
-        console.log("Lower", decodedText);
-      }
-      else if(currentLetter == currentLetter.toUpperCase()) {
-        let currentIndex = alphabetUpper.indexOf(currentLetter);
-        let newIndex = currentIndex - shiftValue;
-        if (newIndex > 25) newIndex = newIndex - 26;
-        if (newIndex < 0) newIndex = newIndex + 26;
-        decodedText += alphabetUpper[newIndex];
-        console.log("Upper", decodedText);
-      }
+        return newIndex;
     }
 
-    this.decodedText = decodedText;
-    this.isLoading = false;
-  }
+    encodeInput(): void {
+        const shiftValue = Number(this.shiftValue) % 26; //edge case of input of high number
+        let encodedText = "";
+        this.isLoading = true;
 
+
+        for (let i = 0; i < this.inputText.length; i++) {
+            let currentLetter = this.inputText[i];
+
+            if (!this.validateIfCharacterIsALetter(currentLetter)) {
+                encodedText += currentLetter;
+                continue;
+            }
+
+            let currentIndex = this.getAlphabet(currentLetter).indexOf(currentLetter);
+            let newIndex = this.shiftIndexForward(currentIndex, shiftValue);
+            encodedText += this.getAlphabet(currentLetter)[newIndex];
+        }
+        this.encodedText = encodedText;
+        this.isLoading = false;
+    }
+
+    decodeInput(): void {
+        const shiftValue = Number(this.shiftValue) % 26; //edge case of input of high number
+        this.isLoading = true;
+        let decodedText = "";
+
+
+        for (let i = 0; i < this.encodedText.length; i++) {
+            let currentLetter = this.encodedText[i];
+
+            if (!this.validateIfCharacterIsALetter(currentLetter)) {
+                decodedText += currentLetter;
+                continue;
+            }
+
+            let currentIndex = this.getAlphabet(currentLetter).indexOf(currentLetter);
+            let newIndex = this.shiftIndexBackward(currentIndex, shiftValue);
+            decodedText += this.getAlphabet(currentLetter)[newIndex];
+        }
+
+        this.decodedText = decodedText;
+        this.isLoading = false;
+    }
 }
 
 
