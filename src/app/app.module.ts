@@ -10,31 +10,31 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import { FlexLayoutModule } from '@angular/flex-layout';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatIconModule} from "@angular/material/icon";
-import { LayoutModule } from '@angular/cdk/layout';
+import {LayoutModule} from '@angular/cdk/layout';
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatCardModule,
-    MatProgressSpinnerModule,
-    FlexLayoutModule,
-    MatIconModule,
-    LayoutModule,
-],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatGridListModule,
+        MatCardModule,
+        MatProgressSpinnerModule,
+        FlexLayoutModule,
+        MatIconModule,
+        LayoutModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
