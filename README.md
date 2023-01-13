@@ -2,7 +2,7 @@
 
 ## Description
 
-This code creates a Caesar Cipher encoder and decoder. It allows users to input a message and a shift value, and then uses the Caesar Cipher method to encode the message. The encoded message can then be decoded by inputting the message and the shift value again.
+This project is a Caesar Cipher encoder and decoder. It allows users to input a message and a shift value, and then uses the Caesar Cipher method to encode the message. The encoded message can then be decoded by inputting the message and the shift value again.
 
 ![image](https://user-images.githubusercontent.com/117353352/212271081-70c1c11a-ffe1-4b05-b2e3-3f2c2390f623.png)
 
