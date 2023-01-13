@@ -1,27 +1,29 @@
-# AngularCesarEncryption
+# Caesar Cipher
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
+## Description
 
-## Development server
+This code creates a Caesar Cipher encoder and decoder. It allows users to input a message and a shift value, and then uses the Caesar Cipher method to encode the message. The encoded message can then be decoded by inputting the message and the shift value again.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![image](https://user-images.githubusercontent.com/117353352/212271081-70c1c11a-ffe1-4b05-b2e3-3f2c2390f623.png)
 
-## Code scaffolding
+## User Stories
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* As a user, I want to be able to input a message and shift value to encode it
+* As a user, I want to see the encoded message once it's been encoded
+* As a user, I want to be able to input the encoded message and shift value to decode it
+* As a user, I want to be able to clear the input fields and start over
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* Encoding and decoding of messages using the Caesar Cipher method
+* Clear button to clear input fields and start over
+* Loading spinner while the message is being encoded
 
-## Running unit tests
+## How to run it locally
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Clone the repository to your local machine
+* Run npm install to install the necessary dependencies
+* Run ng serve to start a local development server
+* Navigate to http://localhost:4200/ in your browser to view the app
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
