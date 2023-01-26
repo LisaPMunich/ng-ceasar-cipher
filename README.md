@@ -16,7 +16,7 @@ In this project I created a Caesar Cipher encoder and decoder. It allows users t
 ## Features
 
 * Encoding and decoding of messages using the Caesar Cipher method
-* Clear button to clear input fields and start over
+* Button to clear input fields and start over
 * Loading spinner while the message is being encoded
 
 ## How to run it locally
